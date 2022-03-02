@@ -1,3 +1,106 @@
 <p>products works!</p>
 <h1>{{Store_name}}</h1>
 <h3>We offer an explicit discount of:{{Discount}} </h3>
+
+<!-- lab2 -->
+<!-- 1 -->
+<h3 *ngIf="Nodisc; then thenBlock; else elseBlock; ">
+
+</h3>
+<ng-template #thenBlock>  
+    <h3>
+        We offer NoDiscount
+     </h3>
+</ng-template>
+<ng-template #elseBlock>
+    <h3>
+        We offer an explicit discount of:{{Discount}}
+     </h3>    
+</ng-template>
+<!-- 2 -->
+<h1>2/Drop down list Categories:</h1>
+<select name="Category">
+    <option value=”good” *ngFor="let cat of CategoryList; index as i">{{cat.Id+'-'+cat.Name}}</option>
+</select>
+<!-- 3 -->
+<br><br>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Img</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of ProductList; ">
+
+            <td>{{p.Id}}</td>
+            <td>{{p.Name}}</td>
+            <td>{{p.Quantity}}</td>
+            <td>{{p.Price}}</td>
+            <td>{{p.Img}}</td>
+
+        </tr>
+
+    </tbody>
+</table>
+<br>
+
+<!-- 4 -->
+<br>
+<input type="text" [(ngModel)]="dataUserEntered">
+{{dataUserEntered}}
+<br>
+<!-- 5 -->
+<input type="button" value="Buy" (click)="Purshased()">
+{{IsPurshased}}
+
+<div *ngIf="IsPurshased;  then elseDisplay; else thenDisplay; ">
+</div>
+<ng-template #thenDisplay>
+    <h2>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Img</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of ProductList; ">
+        
+                    <td>{{p.Id}}</td>
+                    <td>{{p.Name}}</td>
+                    <td>{{p.Quantity}}</td>
+                    <td>{{p.Price}}</td>
+                    <td>{{p.Img}}</td>
+        
+                </tr>
+        
+            </tbody>
+        </table>
+    </h2>
+</ng-template>
+
+<ng-template #elseDisplay>
+    <div>Thanks for purchasing from our Store: + {{ClientName}}</div>
+</ng-template>
+<!-- 6 -->
+
+ <br>
+<h2>Q6</h2>
+{{ Storename | uppercase }}
+<br>
+ {{ Discount | percent }}
+<br>
+-----------------------------------------------
+<h2>Bonus</h2>
+{{arr | filter}}

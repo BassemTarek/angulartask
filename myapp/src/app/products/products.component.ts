@@ -56,12 +56,17 @@ export class ProductsComponent implements OnInit {
 
     }
     Discount:DiscountOffers ;
+    Nodisc:boolean=true;
     Store_name:string ;
     Store_logo:string;
     ProductList:IProducts[];
     CategoryList:ICategory[];
     ClientName:string;
     IsPurshased:boolean;
+    Storename:string="Online Store"
+    dataUserEntered="default data";
+    Purshased()
+    {this.IsPurshased=false;}
     
     
 
