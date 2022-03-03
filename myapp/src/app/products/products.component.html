@@ -2,11 +2,9 @@
 <h1>{{Store_name}}</h1>
 <h3>We offer an explicit discount of:{{Discount}} </h3>
 
-<!-- lab2 -->
+lab2
 <!-- 1 -->
-<h3 *ngIf="Nodisc; then thenBlock; else elseBlock; ">
-
-</h3>
+<h3 *ngIf="Nodisc; then thenBlock; else elseBlock; "></h3>
 <ng-template #thenBlock>  
     <h3>
         We offer NoDiscount
@@ -104,3 +102,24 @@
 -----------------------------------------------
 <h2>Bonus</h2>
 {{arr | filter}}
+
+
+<!-- lab3 -->
+
+<div *ngFor="let product of productList">
+    {{product.Id}}
+    {{product.Name}}
+    {{product.Quantity}}
+    {{product.Price}}
+
+
+</div>
+
+<br>
+
+<!-- 2 -->
+
+
+{{"ProductDetails:  Id :" + ProductID.Id + "   , Name   " + ProductId.Name + ",  Price "+ProductId.Price }}
+
+<br>

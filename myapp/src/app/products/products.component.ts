@@ -1,3 +1,4 @@
+import { ProductServiceService } from './../Services/product-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../Shared Classes and types/ICatefory';
 import { IProducts } from '../Shared Classes and types/IProduct';
@@ -9,7 +10,7 @@ import {DiscountOffers} from '../Shared Classes and types/Discountoffers.enum';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor()
+  constructor(private productService:ProductServiceService)
    {
      this.Discount=DiscountOffers.D1,
      this.Store_name='My Gallery',
@@ -67,6 +68,19 @@ export class ProductsComponent implements OnInit {
     dataUserEntered="default data";
     Purshased()
     {this.IsPurshased=false;}
+
+    arr=[1,2,3,4,5,1];
+
+
+
+    productList:any;  
+    ProductID:any;  
+  
+  
+    renderValues(){
+  
+      return this.productList=this.productService.GetAllProducts();
+    }
     
     
 
