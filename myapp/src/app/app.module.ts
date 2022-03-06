@@ -8,6 +8,11 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
 import { PercentPipe } from './percent.pipe';
+import { HomeComponent } from './home/home.component';
+import { UsernotfoundComponent } from './usernotfound/usernotfound.component';
+import { UsersComponent } from './users/users.component';
+import { PostsComponent } from './posts/posts.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,19 @@ import { PercentPipe } from './percent.pipe';
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
-    PercentPipe
+    PercentPipe,
+    HomeComponent,
+    UsernotfoundComponent,
+    UsersComponent,
+    PostsComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

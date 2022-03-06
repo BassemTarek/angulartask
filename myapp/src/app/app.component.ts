@@ -14,7 +14,29 @@ export class AppComponent {
 
 flag:boolean=false;
 
-Products:any;
+Products:any=[
+  {
+    Id:1,
+    Name:"Samsung Galaxy M12",
+    Quantity:1,
+    Price:4000,
+    Img:""
+  },
+  {
+   Id:10,
+   Name:"Levonp Legion 5",
+   Quantity:2 ,
+   Price:25000,
+   Img:""
+ },
+ {
+   Id:20,
+   Name:"Tommy Hilfger",
+   Quantity:3,
+   Price:1500,
+   Img:""
+ },
+]
 
 
 constructor(){}

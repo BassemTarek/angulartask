@@ -2,13 +2,16 @@ import { IProducts } from './../Shared Classes and types/IProduct';
 
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
   ProductList:Array<IProducts>=[
     {
       Id:1,
@@ -33,10 +36,22 @@ export class ProductServiceService {
    },
   ]
 
-  GetAllProducts() {
-    return this.ProductList;
+  private _url:string="/assets/Data/Products.json";
+
+  GetAllProducts():Observable<IProducts[]>
+   {
+     return this.http.get<IProducts[]>(this._url).pipe(catchError(err =>
+      {
+        return throwError (err.Message || "Server Error")
+      }));
+     
+   }
+
+  // GetAllProducts() {
+  //   return this.ProductList;
    
-  }
+  // }
+
 
 
   
